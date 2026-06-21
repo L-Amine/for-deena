@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Promise To You</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#0d0611;
+    overflow-x:hidden;
+    min-height:100vh;
+    color:white;
+    font-family:'Poppins',sans-serif;
+}
+
+canvas{
+    position:fixed;
+    inset:0;
+    z-index:0;
+}
+
+.container{
+    position:relative;
+    z-index:2;
+    max-width:900px;
+    margin:auto;
+    padding:60px 25px;
+}
+
+.header{
+    text-align:center;
+    margin-bottom:70px;
+    animation:fadeUp 1.5s ease;
+}
+
+.small{
+    color:#ff7aa8;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    font-size:12px;
+}
+
+h1{
+    font-family:'Cormorant Garamond',serif;
+    font-size:58px;
+    font-weight:300;
+    margin-top:15px;
+}
+
+.subtitle{
+    margin-top:15px;
+    color:rgba(255,255,255,.7);
+    font-style:italic;
+}
+
+.promise{
+    display:flex;
+    gap:25px;
+    padding:30px 0;
+    border-bottom:1px solid rgba(255,255,255,.08);
+    animation:fadeUp 1s ease forwards;
+}
+
+.number{
+    color:#ff4d88;
+    font-size:18px;
+    min-width:40px;
+    font-family:'Cormorant Garamond',serif;
+}
+
+.promise h2{
+    font-family:'Cormorant Garamond',serif;
+    font-size:32px;
+    font-weight:400;
+    margin-bottom:10px;
+}
+
+.promise p{
+    color:rgba(255,255,255,.75);
+    line-height:1.8;
+}
+
+.footer{
+    text-align:center;
+    margin-top:80px;
+    padding-top:40px;
+    border-top:1px solid rgba(255,255,255,.08);
+}
+
+.quote{
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    font-size:24px;
+    color:#ffd6e5;
+    line-height:1.6;
+}
+
+.signature{
+    margin-top:40px;
+}
+
+.signature h3{
+    font-family:'Cormorant Garamond',serif;
+    font-size:40px;
+    color:#ff8fb5;
+    font-weight:400;
+}
+
+.signature p{
+    margin-top:8px;
+    color:rgba(255,255,255,.5);
+    letter-spacing:2px;
+}
+
+.heart{
+    font-size:40px;
+    color:#ff4d88;
+    margin-bottom:15px;
+    animation:pulse 2s infinite;
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes pulse{
+    0%,100%{
+        transform:scale(1);
+    }
+    50%{
+        transform:scale(1.15);
+    }
+}
+
+@media(max-width:768px){
+    h1{
+        font-size:42px;
+    }
+
+    .promise h2{
+        font-size:25px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="petals"></canvas>
+
+<div class="container">
+
+    <div class="header">
+        <div class="heart">♥</div>
+        <div class="small">A Promise From Amine</div>
+        <h1>For Deena</h1>
+        <p class="subtitle">
+            Not because you asked for it, but because my heart wanted to say it.
+        </p>
+    </div>
+
+    <div class="promise">
+        <div class="number">I</div>
+        <div>
+            <h2>I promise to be patient</h2>
+            <p>
+                I know feelings can be scary sometimes. I will never rush you or force you into anything.
+                Your comfort and happiness will always matter more than my impatience.
+            </p>
+        </div>
+    </div>
+
+    <div class="promise">
+        <div class="number">II</div>
+        <div>
+            <h2>I promise to be honest</h2>
+            <p>
+                No games, no pretending, no hidden intentions.
+                What I feel for you is real, and I will always be sincere with you.
+            </p>
+        </div>
+    </div>
+
+    <div class="promise">
+        <div class="number">III</div>
+        <div>
+            <h2>I promise to support you</h2>
+            <p>
+                In your good days and difficult days,
+                I want to be someone you can rely on, trust, and smile with.
+            </p>
+        </div>
+    </div>
+
+    <div class="promise">
+        <div class="number">IV</div>
+        <div>
+            <h2>I promise to respect your heart</h2>
+            <p>
+                Your feelings are precious.
+                I will never take them for granted or treat them carelessly.
+            </p>
+        </div>
+    </div>
+
+    <div class="promise">
+        <div class="number">V</div>
+        <div>
+            <h2>I promise my feelings are genuine</h2>
+            <p>
+                Whether it takes time or not,
+                what I feel for you comes from a place of honesty, admiration, and care.
+            </p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p class="quote">
+            “I'm not asking you to decide today. <br>
+            I'm only asking you to know that my feelings are real.”
+        </p>
+
+        <div class="signature">
+            <h3>Amine ♥</h3>
+            <p>FOR DEENA</p>
+        </div>
+    </div>
+
+</div>
+
+<script>
+const canvas = document.getElementById("petals");
+const ctx = canvas.getContext("2d");
+
+function resize(){
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener("resize", resize);
+
+const petals = [];
+
+for(let i=0;i<40;i++){
+    petals.push({
+        x:Math.random()*canvas.width,
+        y:Math.random()*canvas.height,
+        size:Math.random()*8+4,
+        speed:Math.random()*1+0.3,
+        drift:(Math.random()-0.5)*0.8,
+        angle:Math.random()*360
+    });
+}
+
+function animate(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+
+    petals.forEach(p=>{
+        p.y += p.speed;
+        p.x += p.drift;
+
+        if(p.y > canvas.height+20){
+            p.y = -20;
+            p.x = Math.random()*canvas.width;
+        }
+
+        ctx.save();
+        ctx.translate(p.x,p.y);
+        ctx.rotate(p.angle);
+        ctx.fillStyle = "rgba(255,105,150,0.7)";
+        ctx.beginPath();
+        ctx.ellipse(0,0,p.size*0.6,p.size,0,0,Math.PI*2);
+        ctx.fill();
+        ctx.restore();
+    });
+
+    requestAnimationFrame(animate);
+}
+animate();
+</script>
+
+</body>
+</html>
